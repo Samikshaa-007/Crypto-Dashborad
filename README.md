@@ -2,8 +2,6 @@
 
 A web application built with Node.js and Express that displays live cryptocurrency prices, market caps, and 24-hour trends using the public CoinGecko API. 
 
-Built for the Capstone API Project in Angela Yu's Complete Web Development Bootcamp.
-
 ## 🛠️ Built With
 * **Backend:** Node.js, Express.js
 * **Frontend:** EJS (Templating), HTML, CSS

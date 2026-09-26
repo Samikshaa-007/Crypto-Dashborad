@@ -1,0 +1,58 @@
+/* Reset basic margins and set a nice background */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 40px;
+    text-align: center;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+/* Container to hold the crypto cards side-by-side */
+.crypto-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Styling for each individual coin card */
+.crypto-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 220px;
+    transition: transform 0.2s;
+}
+
+.crypto-card:hover {
+    transform: translateY(-5px);
+}
+
+.crypto-card h2 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #2980b9;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.market-cap {
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+/* Color classes for the 24h change */
+.positive { color: #27ae60; font-weight: bold; }
+.negative { color: #c0392b; font-weight: bold; }

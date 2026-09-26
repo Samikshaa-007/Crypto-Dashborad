@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Tracker</title>
+    
+    <!-- We removed the <link> tag and put the CSS directly inside a <style> tag -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .crypto-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .crypto-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 220px;
+            transition: transform 0.2s;
+        }
+
+        .crypto-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .crypto-card h2 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #2980b9;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .market-cap {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        .positive { color: #27ae60; font-weight: bold; }
+        .negative { color: #c0392b; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Crypto Tracker</h1>
+    <p>Live prices powered by CoinGecko</p>
+    
+    <% if (locals.coins){ %>
+        <div class="crypto-container">
+            <% coins.forEach(coin => { %>
+                <div class="crypto-card">
+                    <h2><%= coin.name %> (<%= coin.symbol.toUpperCase() %>)</h2>
+                    <p class="price">$<%= coin.current_price.toLocaleString() %></p>
+                    <p class="market-cap">Cap: $<%= coin.market_cap.toLocaleString() %></p>
+                    
+                    <% if (coin.price_change_percentage_24h >= 0) { %>
+                        <p class="positive">▲ <%= coin.price_change_percentage_24h.toFixed(2) %>%</p>
+                    <% } else { %>
+                        <p class="negative">▼ <%= coin.price_change_percentage_24h.toFixed(2) %>%</p>
+                    <% } %>
+                </div>
+            <% }) %>
+        </div>
+    <% } else { %>
+        <p>Failed to load cryptocurrency data. Please try again later.</p>
+    <% } %>
+</body>
+</html>
